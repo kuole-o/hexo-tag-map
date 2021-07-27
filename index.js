@@ -3,8 +3,9 @@
 // * https://guole.fun/
 // * license: Apache-2.0
 // * https://github.com/kuole-o/hexo-tag-map/blob/main/LICENSE
-// {% map mapWidth, mapHeight, altLan, altLat，zoom，alt, displayZoom %}
-// {% map 宽, 高, 经度, 纬度，缩放级别，文本, 是否显示缩放开关 %}
+// {% map mapWidth, mapHeight, altLan, altLat，zoom，alt %}
+// {% map 宽, 高, 经度, 纬度，缩放级别，文本 %}
+// 一个例子：{% map 90%, 360px, 114.533983, 22.569441, 14, 这里是西涌沙滩 %}
 
 'use strict';
 
@@ -18,7 +19,6 @@ hexo.extend.tag.register('map', function(args){
     let mapHeight = '360px';
     let zoom = 16;
     let alt = '';
-    let displayZoom = true;
     let altLan = 116.40361;
     let altLat = 39.91469;
     if (args.length == 1) {
@@ -49,19 +49,7 @@ hexo.extend.tag.register('map', function(args){
         altLat = args[3].trim();
         zoom = args[4].trim();
         alt = args[5].trim();
-    } else if (args.length == 7) {
-        mapWidth = args[0].trim();
-        mapHeight = args[1].trim();
-        altLan = args[2].trim();
-        altLat = args[3].trim();
-        zoom = args[4].trim();
-        alt = args[5].trim();
-        if (args[6].trim() == 0) {
-            displayZoom = false;
-        } else {
-            displayZoom = true;
-        }
-    } else if (args.length > 7 || args.length < 0 ) {
+    } else if (args.length > 6 || args.length < 0 ) {
         console.error('>>>>>>>错误：标签内参数不正确，请查看文档：https://github.com/kuole-o/hexo-tag-map');
         throw new Error('标签内参数不正确,请查看文档：https://github.com/kuole-o/hexo-tag-map');
     }
@@ -70,14 +58,18 @@ hexo.extend.tag.register('map', function(args){
     result += css_text;
     result += js_text;
     result += '<div class="map-box">';
-    result += '<div id=' + mapid + 'style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;"></div>';
+    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;"></div>';
     result += '</div>';
-    return result;
+    result += '<script>';
+    result += "var mymap = L.map('" + mapid + "', { attributionControl:false }).setView(['" + altLat + "','" + altLan + "']," + zoom + ");";
+    result += "L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);";
+    result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
+        if (args.length < 6) {
+            result += '</script>';
+            return result;
+        } else {
+            result += 'marker.bindPopup("' + alt + '").openPopup();';
+            result += '</script>';
+            return result;
+        }
 });
-    var mymap = L.map(mapid, { attributionControl:false }).setView([altLat,altLan], zoom);
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
-    var marker = L.marker([altLat,altLan]).addTo(mymap);
-        marker.bindPopup(alt).openPopup();
-    var mymap = L.map(mapid, {
-            zoomControl: displayZoom
-        });

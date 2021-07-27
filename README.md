@@ -1,6 +1,11 @@
 <!-- This file is modified by guole.fun -->
 # Hexo-tag-map
 给你的 Hexo 文章页面插入交互式地图吧。非 Google 地图，不必担心国内用户的访问。  
+A map plug-in under hexo, which supports rendering of beautiful interactive maps on article pages.
+* author: guole
+* https://guole.fun/
+* license: Apache-2.0
+* https://github.com/kuole-o/hexo-tag-map/blob/main/LICENSE
 
 ## 安装
 
