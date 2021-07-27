@@ -15,7 +15,7 @@ const js_text = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-ma
 hexo.extend.tag.register('map', function(args){
     args = args.join(' ').split(',');
 
-    let mapWidth = '90%';
+    let mapWidth = '100%';
     let mapHeight = '360px';
     let zoom = 16;
     let alt = '';
