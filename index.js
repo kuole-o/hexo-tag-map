@@ -17,7 +17,7 @@ hexo.extend.tag.register('map', function(args){
     let mapWidth = '90%';
     let mapHeight = '360px';
     let zoom = 16;
-    let alt = '这里是北京天安门';
+    let alt = '';
     let displayZoom = true;
     let altLan = 116.40361;
     let altLat = 39.91469;
@@ -68,15 +68,16 @@ hexo.extend.tag.register('map', function(args){
     let mapid = 'map-' + altLan + '-' + altLat;
     let result = '';
     result += css_text;
-    result += '<div class="max-box">';
+    result += js_text;
+    result += '<div class="map-box">';
     result += '<div id=' + mapid + 'style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;"></div>';
     result += '</div>';
-    result += js_text;
     return result;
 });
     var mymap = L.map(mapid, { attributionControl:false }).setView([altLat,altLan], zoom);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
     var marker = L.marker([altLat,altLan]).addTo(mymap);
-	    marker.bindPopup("alt").openPopup();
-
-hexo.extend.tag.register('map', postCheckbox);
+        marker.bindPopup(alt).openPopup();
+    var mymap = L.map(mapid, {
+            zoomControl: displayZoom
+        });
