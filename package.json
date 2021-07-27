@@ -1,0 +1,22 @@
+{
+  "name": "hexo-tag-map",
+  "version": "1.0.0",
+  "description": "A map plug-in under hexo, which supports rendering of beautiful interactive maps on article pages.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kuole-o/hexo-tag-map.git"
+  },
+  "author": "guole",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kuole-o/hexo-tag-map/issues"
+  },
+  "homepage": "https://github.com/kuole-o/hexo-tag-map#readme"
+}
