@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style type="text/css">
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    html,
+    body,
+    #map {
+        height: 100%;
+    }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+    <script src="https://cdn.bootcss.com/proj4js/2.4.3/proj4.js"></script>
+    <script src="https://cdn.bootcss.com/proj4leaflet/1.0.1/proj4leaflet.min.js"></script>
+    <script type="text/javascript" src='../src/leaflet.ChineseTmsProviders.js'></script>
+</head>
+
+<body>
+    <div id='map'></div>
+</body>
+<script type="text/javascript">
+var normalMap = L.tileLayer.chinaProvider('OSM.Normal.Map', {
+    maxZoom: 18,
+    minZoom: 5,
+});
+
+var map = L.map("map", {
+    center: [31.59, 120.29],
+    zoom: 12,
+    layers: [normalMap],
+    zoomControl: false
+});
+
+L.control.zoom({
+    zoomInTitle: '放大',
+    zoomOutTitle: '缩小'
+}).addTo(map);
+</script>
+
+</html>

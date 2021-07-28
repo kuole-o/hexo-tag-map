@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-map",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A map plug-in under hexo, which supports rendering of beautiful interactive maps on article pages.",
   "main": "index.js",
   "directories": {
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/kuole-o/hexo-tag-map/issues"
   },
-  "homepage": "https://github.com/kuole-o/hexo-tag-map#readme"
+  "homepage": "https://github.com/kuole-o/hexo-tag-map#readme",
+  "dependencies": {
+    "leaflet.chinatmsproviders": "^3.0.4"
+  }
 }
