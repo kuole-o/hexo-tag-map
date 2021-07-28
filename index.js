@@ -79,17 +79,26 @@ function hunhe(args){
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
-    result += '<script>';
-    result += "var normalm=L.tileLayer.chinaProvider('GaoDe.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + gaode_txt + "'});";
-    result += "var imgm=L.tileLayer.chinaProvider('GaoDe.Satellite.Map',{maxZoom:18,minZoom:5,attribution:'" + gaode_txt + "'});";
-    result += "var imga=L.tileLayer.chinaProvider('GaoDe.Satellite.Annotion',{maxZoom:18,minZoom:5,attribution:'" + gaode_txt + "'});";
-    result += "var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + google_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:18,minZoom:5,attribution:'" + google_txt + "'});";
-    result += "var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + geoq_txt + "'});";
+    result += '<script type="text/javascript">';
+    result += "var normalm=L.tileLayer.chinaProvider('GaoDe.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + gaode_txt + "'});";
+    result += "var imgm=L.tileLayer.chinaProvider('GaoDe.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + gaode_txt + "'});";
+    result += "var imga=L.tileLayer.chinaProvider('GaoDe.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'" + gaode_txt + "'});";
+    result += "var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + google_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + google_txt + "'});";
+    result += "routeMap=L.tileLayer.chinaProvider('Google.Satellite.Annotion',{maxZoom:18,minZoom:1});";
+    result += "var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + geoq_txt + "'});";
+    result += 'var normal=L.layerGroup([normalm]),image=L.layerGroup([imgm,imga]);';
     result += 'var baseLayers={"高德地图":normal,"智图地图":normalm1,"谷歌地图":normalMap,"高德卫星地图":image,"谷歌卫星地图":satelliteMap};';
     result += "var mymap=L.map('" + mapid + "',{center:[" + altLat + "," + altLan + "],zoom:" + zoom + ",layers:[normal],zoomControl:false});";
     result += "L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);";
-    result += '</script>';
-    return result;
+        if (args.length == 2) {
+            result += '</script>';
+            return result;
+        } else {
+            result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
+            result += 'marker.bindPopup("' + alt + '").openPopup();';
+            result += '</script>';
+            return result;
+        }
 };
 hexo.extend.tag.register('map', hunhe);
 
@@ -152,18 +161,19 @@ function gaode(args){
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
-    result += '<script>';
-    result += "var normalm=L.tileLayer.chinaProvider('GaoDe.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + gaode_txt + "'});";
-    result += "var imgm=L.tileLayer.chinaProvider('GaoDe.Satellite.Map',{maxZoom:18,minZoom:5,attribution:'" + gaode_txt + "'});";
-    result += "var imga=L.tileLayer.chinaProvider('GaoDe.Satellite.Annotion',{maxZoom:18,minZoom:5,attribution:'" + gaode_txt + "'});";
-    result += 'var normal=L.layerGroup([normalm]),image=L.layerGroup([imgm,imga]);var baseLayers={"高德地图":normal,"高德卫星图":image,}';
+    result += '<script type="text/javascript">';
+    result += "var normalm=L.tileLayer.chinaProvider('GaoDe.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + gaode_txt + "'});";
+    result += "var imgm=L.tileLayer.chinaProvider('GaoDe.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + gaode_txt + "'});";
+    result += "var imga=L.tileLayer.chinaProvider('GaoDe.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'" + gaode_txt + "'});";
+    result += 'var normal=L.layerGroup([normalm]),image=L.layerGroup([imgm,imga]);';
+    result += 'var baseLayers={"高德地图":normal,"高德卫星图":image}';
     result += "var mymap=L.map('" + mapid + "',{center:[" + altLat + "," + altLan + "],zoom:" + zoom + ",layers:[normal],zoomControl:false});";
     result += "L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);";
-    result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
         if (args.length == 2) {
             result += '</script>';
             return result;
         } else {
+            result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
             result += 'marker.bindPopup("' + alt + '").openPopup();';
             result += '</script>';
             return result;
@@ -302,19 +312,18 @@ function baidu(args){
     result += proj4;
     result += proj4leaflet;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
-    result += '</div>';
-    result += '<script>';
-    result += "var normalMap=L.tileLayer.chinaProvider('Baidu.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + baidu_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Baidu.Satellite.Map',{maxZoom:18,minZoom:5,attribution:'" + baidu_txt + "'}),annotionMap=L.tileLayer.chinaProvider('Baidu.Satellite.Annotion',{maxZoom:18,minZoom:5,attribution:'" + baidu_txt + "'});";
+    result += '<script type="text/javascript">';
+    result += "var normalMap=L.tileLayer.chinaProvider('Baidu.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Baidu.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'}),annotionMap=L.tileLayer.chinaProvider('Baidu.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'});";
     result += 'var baseLayers={"百度地图":normalMap,"百度卫星图":satelliteMap}';
-    result += 'var mymap=L.map("' + mapid + '",{crs:L.CRS.Baidu,minZoom:3,maxZoom:18,attributionControl:false,center:[' + altLat + ',' + altLan + '],zoom:' + zoom + '});';
+    result += 'var overlayLayers={"百度卫星标注图":annotionMap}';
+    result += 'var mymap=L.map("' + mapid + '",{crs:L.CRS.Baidu,minZoom:3,maxZoom:18,attributionControl:false,center:[' + altLat + ',' + altLan + '],zoom:' + zoom + ',layers: [normalMap]});';
     result += "L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);";
-    result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
         if (args.length == 2) {
             result += '</script>';
             return result;
         } else {
+            result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
             result += 'marker.bindPopup("' + alt + '").openPopup();';
             result += '</script>';
             return result;
@@ -378,24 +387,22 @@ function geoq(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
-    result += '</div>';
-    result += '<script>';
-    result += "var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + geoq_txt + "'});";
-    result += "var normalm2=L.tileLayer.chinaProvider('Geoq.Normal.PurplishBlue',{maxZoom:18,minZoom:5,attribution:'" + geoq_txt + "'});";
-    result += "var normalm3=L.tileLayer.chinaProvider('Geoq.Normal.Gray',{maxZoom:18,minZoom:5,attribution:'" + geoq_txt + "'});";
-    result += "var normalm4=L.tileLayer.chinaProvider('Geoq.Normal.Warm',{maxZoom:18,minZoom:5,attribution:'" + geoq_txt + "'});";
-    result += "var normalm5=L.tileLayer.chinaProvider('Geoq.Theme.Hydro',{maxZoom:18,minZoom:5,attribution:'" + geoq_txt + "'});";
+    result += '<script type="text/javascript">';
+    result += "var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + geoq_txt + "'});";
+    result += "var normalm2=L.tileLayer.chinaProvider('Geoq.Normal.PurplishBlue',{maxZoom:18,minZoom:1,attribution:'" + geoq_txt + "'});";
+    result += "var normalm3=L.tileLayer.chinaProvider('Geoq.Normal.Gray',{maxZoom:18,minZoom:1,attribution:'" + geoq_txt + "'});";
+    result += "var normalm4=L.tileLayer.chinaProvider('Geoq.Normal.Warm',{maxZoom:18,minZoom:1,attribution:'" + geoq_txt + "'});";
+    result += "var normalm5=L.tileLayer.chinaProvider('Geoq.Theme.Hydro',{maxZoom:18,minZoom:1,attribution:'" + geoq_txt + "'});";
     result += 'var normal=L.layerGroup([normalm1,normalm2,normalm3,normalm4,normalm5]);';
     result += 'var baseLayers={"智图地图":normalm1,"午夜蓝":normalm2,"灰色":normalm3,"暖色":normalm4,"水系":normalm5}';
     result += 'var mymap=L.map("' + mapid + '",{center:[' + altLat + ',' + altLan + '],zoom:' + zoom + ',layers:[normalm1],zoomControl:false});';
     result += "L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);";
-    result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
         if (args.length == 2) {
             result += '</script>';
             return result;
         } else {
+            result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
             result += 'marker.bindPopup("' + alt + '").openPopup();';
             result += '</script>';
             return result;
@@ -459,20 +466,18 @@ function google(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
-    result += '</div>';
-    result += '<script>';
-    result += "var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:18,minZoom:5,attribution:'" + google_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:18,minZoom:5,attribution:'" + google_txt + "'});";
-    result += 'var baseLayers={"谷歌地图":normalMap,"谷歌卫星图":satelliteMap}';
+    result += '<script type="text/javascript">';
+    result += "var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:18,minZoom:1,attribution:'" + google_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + google_txt + "'}),routeMap=L.tileLayer.chinaProvider('Google.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'" + google_txt + "'});";
+    result += 'var baseLayers={"谷歌地图":normalMap,"谷歌卫星图":satelliteMap,"谷歌卫星标注图": routeMap}';
     result += 'var overlayLayers={}';
     result += 'var mymap=L.map("' + mapid + '",{center:[' + altLat + ',' + altLan + '],zoom:' + zoom + ',layers:[normalMap],zoomControl:false});';
     result += "L.control.layers(baseLayers,overlayLayers).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);";
-    result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
         if (args.length == 2) {
             result += '</script>';
             return result;
         } else {
+            result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
             result += 'marker.bindPopup("' + alt + '").openPopup();';
             result += '</script>';
             return result;
