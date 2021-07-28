@@ -12,6 +12,9 @@
 
 const css_text = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css">`;
 const js_text = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script>`;
+const ChineseTmsProviders = `<script data-pjax src="./lib/leaflet.ChineseTmsProviders.js"></script>`;
+const proj4 = `<script src="https://cdn.bootcss.com/proj4js/2.4.3/proj4.js"></script>`;
+const proj4leaflet = `<script src="https://cdn.bootcss.com/proj4leaflet/1.0.1/proj4leaflet.min.js"></script>`;
 let geoq_txt = "智图地图 Geoq.cn";
 let gaode_txt = "高德地图 Amap.com";
 let google_txt = "谷歌地图 Google.com";
@@ -72,6 +75,7 @@ function hunhe(args){
     let result = '';
     result += css_text;
     result += js_text;
+    result += ChineseTmsProviders;
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
@@ -144,6 +148,7 @@ function gaode(args){
     let result = '';
     result += css_text;
     result += js_text;
+    result += ChineseTmsProviders;
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
@@ -294,6 +299,9 @@ function baidu(args){
     let result = '';
     result += css_text;
     result += js_text;
+    result += ChineseTmsProviders;
+    result += proj4;
+    result += proj4leaflet;
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
@@ -369,6 +377,7 @@ function geoq(args){
     let result = '';
     result += css_text;
     result += js_text;
+    result += ChineseTmsProviders;
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
@@ -449,6 +458,7 @@ function google(args){
     let result = '';
     result += css_text;
     result += js_text;
+    result += ChineseTmsProviders;
     result += '<div class="map-box">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';

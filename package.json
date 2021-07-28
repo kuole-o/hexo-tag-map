@@ -19,7 +19,5 @@
     "url": "https://github.com/kuole-o/hexo-tag-map/issues"
   },
   "homepage": "https://github.com/kuole-o/hexo-tag-map#readme",
-  "dependencies": {
-    "leaflet.chinatmsproviders": "^3.0.4"
-  }
+  "dependencies": {}
 }
