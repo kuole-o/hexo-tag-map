@@ -3,9 +3,10 @@
 // * https://guole.fun/
 // * license: Apache-2.0
 // * https://github.com/kuole-o/hexo-tag-map/blob/main/LICENSE
-// {% map mapWidth, mapHeight, altLan, altLat，zoom，alt %}
-// {% map 宽, 高, 经度, 纬度，缩放级别，文本 %}
-// 一个例子：{% map 90%, 360px, 114.533983, 22.569441, 14, 这里是西涌沙滩 %}
+// {% map altLan, altLat, alt, zoom, mapWidth, mapHeight %}
+// {% map 经度, 纬度, 文本, 缩放级别, 宽, 高 %}
+// 一个例子：{% map 114.533983, 22.569441,这里是西涌沙滩, 14, 100%, 360px %}
+// 一个例子：{% map %}
 
 'use strict';
 
@@ -17,16 +18,14 @@ hexo.extend.tag.register('map', function(args){
 
     let mapWidth = '100%';
     let mapHeight = '360px';
-    let zoom = 16;
-    let alt = '';
+    let zoom = 14;
+    let alt = '这里是北京天安门';
     let altLan = 116.40361;
     let altLat = 39.91469;
-    if (args.length == 1) {
-        console.error('>>>>>>>错误：请至少标签内包含两个值，经度和维度。请查看文档：https://github.com/kuole-o/hexo-tag-map');
-        throw new Error('缺少经纬度信息，请查看文档：https://github.com/kuole-o/hexo-tag-map');
-    } else if (args.length == 2) {
+    if (args.length == 2) {
         altLan = args[0].trim();
         altLat = args[1].trim();
+        alt = '';
     } else if (args.length == 3) {
         altLan = args[0].trim();
         altLat = args[1].trim();
@@ -34,24 +33,33 @@ hexo.extend.tag.register('map', function(args){
     } else if (args.length == 4) {
         altLan = args[0].trim();
         altLat = args[1].trim();
-        zoom = args[2].trim();
-        alt = args[3].trim();
-    } else if (args.length == 5) {
-        mapHeight = args[0].trim();
-        altLan = args[1].trim();
-        altLat = args[2].trim();
+        alt = args[2].trim();
         zoom = args[3].trim();
-        alt = args[4].trim();
+    } else if (args.length == 5) {
+        altLan = args[0].trim();
+        altLat = args[1].trim();
+        alt = args[2].trim();
+        zoom = args[3].trim();
+        mapWidth = args[4].trim();
     } else if (args.length == 6) {
-        mapWidth = args[0].trim();
-        mapHeight = args[1].trim();
-        altLan = args[2].trim();
-        altLat = args[3].trim();
-        zoom = args[4].trim();
-        alt = args[5].trim();
-    } else if (args.length > 6 || args.length < 0 ) {
+        altLan = args[0].trim();
+        altLat = args[1].trim();
+        alt = args[2].trim();
+        zoom = args[3].trim();
+        mapWidth = args[4].trim();
+        mapHeight = args[5].trim();
+    } else if (args.length > 6 || args.length == 1 ) {
         console.error('>>>>>>>错误：标签内参数不正确，请查看文档：https://github.com/kuole-o/hexo-tag-map');
         throw new Error('标签内参数不正确,请查看文档：https://github.com/kuole-o/hexo-tag-map');
+    }
+    var n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
+    var r = /^\+?[1-9][0-9]*$/; //匹配正整数
+    if (n.altLan() && n.altLat() && -180 >= altLan <= 180 && -90 >= altLat <= 90 ) {
+        if (r.zoom() && zoom <= 18 ) {
+      } else {
+        console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确，请查看文档：https://github.com/kuole-o/hexo-tag-map');
+        throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://github.com/kuole-o/hexo-tag-map');
+      }
     }
     let mapid = 'map-' + altLan + '-' + altLat;
     let result = '';
@@ -64,7 +72,7 @@ hexo.extend.tag.register('map', function(args){
     result += "var mymap = L.map('" + mapid + "', { attributionControl:false }).setView(['" + altLat + "','" + altLan + "']," + zoom + ");";
     result += "L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);";
     result += "var marker = L.marker(['" + altLat + "','" + altLan + "']).addTo(mymap);";
-        if (args.length < 6) {
+        if (args.length == 2) {
             result += '</script>';
             return result;
         } else {
