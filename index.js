@@ -30,7 +30,7 @@ function hunhe(args){
     let altLan = 113.884049;
     let altLat = 22.543389;
     if (args.length == 1) {
-        alt = '这里是深圳欢乐港湾，有着亚洲最大摩天轮！';
+        alt = '这里是深圳欢乐港湾，有着亚洲最大的摩天轮！';
     } else if (args.length == 2) {
         altLan = args[0].trim();
         altLat = args[1].trim();
@@ -57,7 +57,7 @@ function hunhe(args){
         mapWidth = args[4].trim();
         mapHeight = args[5].trim();
     } else if (args.length > 7 ) {
-        console.error('>>>>>>>错误：标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
+        console.error('>>>>>>>map标签错误：标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
         throw new Error('标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
     }
         let n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
@@ -65,16 +65,16 @@ function hunhe(args){
         if (n.test(altLan) && n.test(altLat) && altLan <= 180 && altLan >= -180 && altLat <= 90 && altLat >= -90 ) {
             if (r.test(zoom)) {
              } else {
-                console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>map标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
                 }
         } else {
-            console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
+            console.error('>>>>>>>map标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
             throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
         }
         if (args.length >= 4) {
             if (zoom < 3 || zoom > 18 ) {
-                console.error('>>>>>>>错误：标签内缩放等级超出范围(3~18)，请查看文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>map标签错误：标签内缩放等级超出范围(3~18)，请查看文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内缩放等级超出范围(3~18)，请查看文档：https://guole.fun/posts/41887/');
             } else {}
         } else {}
@@ -164,7 +164,7 @@ function gaode(args){
         mapWidth = args[4].trim();
         mapHeight = args[5].trim();
     } else if (args.length > 7 ) {
-        console.error('>>>>>>>错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
+        console.error('>>>>>>>gaodeMap标签错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
         throw new Error('标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
     }
         let n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
@@ -172,16 +172,16 @@ function gaode(args){
         if (n.test(altLan) && n.test(altLat) && altLan <= 180 && altLan >= -180 && altLat <= 90 && altLat >= -90 ) {
             if (r.test(zoom)) {
              } else {
-                console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>gaodeMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内经纬度或缩放等级值不正确，文档：https://guole.fun/posts/41887/');
                 }
         } else {
-            console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
+            console.error('>>>>>>>gaodeMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(3~18),文档：https://guole.fun/posts/41887/');
             throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
         }
         if (args.length >= 4) {
             if (zoom < 3 || zoom > 18 ) {
-                console.error('>>>>>>>错误：标签内缩放等级超出范围(3~18)，请查看文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>gaodeMap标签错误：标签内缩放等级超出范围(3~18)，请查看文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内缩放等级超出范围(3~18)，请查看文档：https://guole.fun/posts/41887/');
             } else {}
         } else {}
@@ -259,7 +259,7 @@ function openstreet(args){
         mapWidth = args[4].trim();
         mapHeight = args[5].trim();
     } else if (args.length > 6 ) {
-        console.error('>>>>>>>错误：标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
+        console.error('>>>>>>>openstreetMap标签错误：标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
         throw new Error('标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
     }
         let n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
@@ -267,16 +267,16 @@ function openstreet(args){
         if (n.test(altLan) && n.test(altLat) && altLan <= 180 && altLan >= -180 && altLat <= 90 && altLat >= -90 ) {
             if (r.test(zoom)) {
              } else {
-                console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>openstreetMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
                 }
         } else {
-            console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
+            console.error('>>>>>>>openstreetMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
             throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
         }
         if (args.length >= 4) {
             if (zoom < 1 || zoom > 18 ) {
-                console.error('>>>>>>>错误：标签内缩放等级超出范围(1~18)，请查看文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>openstreetMap标签错误：标签内缩放等级超出范围(1~18)，请查看文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内缩放等级超出范围(1~18)，请查看文档：https://guole.fun/posts/41887/');
             } else {}
         } else {}
@@ -338,7 +338,7 @@ function baidu(args){
         mapWidth = args[4].trim();
         mapHeight = args[5].trim();
     } else if (args.length > 7 ) {
-        console.error('>>>>>>>错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
+        console.error('>>>>>>>baiduMap标签错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
         throw new Error('标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
     }
         let n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
@@ -346,16 +346,16 @@ function baidu(args){
         if (n.test(altLan) && n.test(altLat) && altLan <= 180 && altLan >= -180 && altLat <= 90 && altLat >= -90 ) {
             if (r.test(zoom)) {
              } else {
-                console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(4~18),文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>baiduMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(4~18),文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
                 }
         } else {
-            console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(4~18),文档：https://guole.fun/posts/41887/');
+            console.error('>>>>>>>baiduMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(4~18),文档：https://guole.fun/posts/41887/');
             throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
         }
         if (args.length >= 4) {
             if (zoom < 4 || zoom > 18 ) {
-                console.error('>>>>>>>错误：标签内缩放等级超出范围(4~18)，请查看文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>baiduMap标签错误：标签内缩放等级超出范围(4~18)，请查看文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内缩放等级超出范围(4~18)，请查看文档：https://guole.fun/posts/41887/');
             } else {}
         } else {}
@@ -429,7 +429,7 @@ function geoq(args){
         mapWidth = args[4].trim();
         mapHeight = args[5].trim();
     } else if (args.length > 7 ) {
-        console.error('>>>>>>>错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
+        console.error('>>>>>>>geoqMap标签错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
         throw new Error('标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
     }
         let n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
@@ -437,16 +437,16 @@ function geoq(args){
         if (n.test(altLan) && n.test(altLat) && altLan <= 180 && altLan >= -180 && altLat <= 90 && altLat >= -90 ) {
             if (r.test(zoom)) {
              } else {
-                console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>geoqMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
                 }
         } else {
-            console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
+            console.error('>>>>>>>geoqMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~18),文档：https://guole.fun/posts/41887/');
             throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
         }
         if (args.length >= 4) {
             if (zoom < 1 || zoom > 18 ) {
-                console.error('>>>>>>>错误：标签内缩放等级超出范围(1~18)，请查看文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>geoqMap标签错误：标签内缩放等级超出范围(1~18)，请查看文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内缩放等级超出范围(1~18)，请查看文档：https://guole.fun/posts/41887/');
             } else {}
         } else {}
@@ -528,7 +528,7 @@ function google(args){
         mapWidth = args[4].trim();
         mapHeight = args[5].trim();
     } else if (args.length > 7 ) {
-        console.error('>>>>>>>错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
+        console.error('>>>>>>>googleMap标签错误：标签内参数不正确，请查看文档：https://guole.fun/posts/41887/');
         throw new Error('标签内参数不正确,请查看文档：https://guole.fun/posts/41887/');
     }
         let n = /^(\-|\+)?\d+(\.\d+)?$/; //匹配正负数，包含正负浮点数
@@ -536,16 +536,16 @@ function google(args){
         if (n.test(altLan) && n.test(altLat) && altLan <= 180 && altLan >= -180 && altLat <= 90 && altLat >= -90 ) {
             if (r.test(zoom)) {
              } else {
-                console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~20),文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>googleMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~20),文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
                 }
         } else {
-            console.error('>>>>>>>错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~20),文档：https://guole.fun/posts/41887/');
+            console.error('>>>>>>>googleMap标签错误：标签内经纬度或缩放等级值不正确。经度(-180~180),纬度(-90~90),缩放等级(1~20),文档：https://guole.fun/posts/41887/');
             throw new Error('标签内经纬度或缩放等级值不正确，请查看文档：https://guole.fun/posts/41887/');
         }
         if (args.length >= 4) {
             if (zoom < 1 || zoom > 20 ) {
-                console.error('>>>>>>>错误：标签内缩放等级超出范围(1~20)，请查看文档：https://guole.fun/posts/41887/');
+                console.error('>>>>>>>googleMap标签错误：标签内缩放等级超出范围(1~20)，请查看文档：https://guole.fun/posts/41887/');
                 throw new Error('标签内缩放等级超出范围(1~20)，请查看文档：https://guole.fun/posts/41887/');
             } else {}
         } else {}
