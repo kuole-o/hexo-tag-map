@@ -23,7 +23,7 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
   * Butterfly已验证，其他Hexo主题，欢迎体验  
 
 <details>
-<summary>更新日志 v1.1.0</summary>
+<summary>更新日志 v1.1.1</summary>
   * 发布第一个正式版本 <br>
   * 若干优化 <br>
 </details>
@@ -35,8 +35,7 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
 <details>
 <summary>点击展开截图</summary>
 
-<details>
-<summary>点击查看混合地图</summary>
+* 混合地图
 ![混合地图](https://cdn.guole.fun/img/202107/hunhe1.jpg)
 ![混合地图](https://cdn.guole.fun/img/202107/hunhe2.jpg)
 ![混合地图](https://cdn.guole.fun/img/202107/hunhe3.jpg)
@@ -44,38 +43,31 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
 ![混合地图](https://cdn.guole.fun/img/202107/hunhe5.jpg)
 ![混合地图](https://cdn.guole.fun/img/202107/hunhe6.jpg)
 ![混合地图](https://cdn.guole.fun/img/202107/hunhe7.jpg)
-</details>
 
-<summary>点击查看谷歌地图</summary>
+* 谷歌地图
 ![谷歌地图](https://cdn.guole.fun/img/202107/google1.jpg)
 ![谷歌地图](https://cdn.guole.fun/img/202107/google2.jpg)
 ![谷歌地图](https://cdn.guole.fun/img/202107/google3.jpg)
-</details>
 
-<summary>点击查看高德地图</summary>
+* 高德地图
 ![高德地图](https://cdn.guole.fun/img/202107/gaode1.jpg)
 ![高德地图](https://cdn.guole.fun/img/202107/gaode2.jpg)
 ![高德地图](https://cdn.guole.fun/img/202107/gaode3.jpg)
-</details>
 
-<summary>点击查看百度地图</summary>
+* 百度地图
 ![百度地图](https://cdn.guole.fun/img/202107/baidu1.jpg)
 ![百度地图](https://cdn.guole.fun/img/202107/baidu2.jpg)
 ![百度地图](https://cdn.guole.fun/img/202107/baidu3.jpg)
-</details>
 
-<summary>点击查看Geoq地图</summary>
+* Geoq地图
 ![Geoq地图](https://cdn.guole.fun/img/202107/baidu1.jpg)
 ![Geoq地图](https://cdn.guole.fun/img/202107/baidu2.jpg)
 ![Geoq地图](https://cdn.guole.fun/img/202107/baidu3.jpg)
 ![Geoq地图](https://cdn.guole.fun/img/202107/baidu4.jpg)
 ![Geoq地图](https://cdn.guole.fun/img/202107/baidu5.jpg)
-</details>
 
-<summary>点击查看openstreetMap</summary>
+* openstreetMap
 ![openstreetMap](https://cdn.guole.fun/img/202107/openstreet.jpg)
-</details>
-
 </details>
 
 ## 安装
