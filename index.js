@@ -83,7 +83,7 @@ function hunhe(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
+    result += '<div class="map-box" style="border-radius: 5px;">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
     result += '<script type="text/javascript">';
@@ -190,7 +190,7 @@ function gaode(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
+    result += '<div class="map-box" style="border-radius: 5px;">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
     result += '<script type="text/javascript">';
@@ -284,7 +284,7 @@ function openstreet(args){
     let result = '';
     result += css_text;
     result += js_text;
-    result += '<div class="map-box">';
+    result += '<div class="map-box" style="border-radius: 5px;">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
     result += '</div>';
     result += '<script>';
@@ -455,7 +455,7 @@ function geoq(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
+    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '<script type="text/javascript">';
     result += "var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:20,minZoom:1,attribution:'" + geoq_txt + "'});";
     result += "var normalm2=L.tileLayer.chinaProvider('Geoq.Normal.PurplishBlue',{maxZoom:20,minZoom:1,attribution:'" + geoq_txt + "'});";
@@ -554,7 +554,7 @@ function google(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
+    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '<script type="text/javascript">';
     result += "var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:22,minZoom:1,attribution:'" + google_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:22,minZoom:1,attribution:'" + google_txt + "'}),routeMap=L.tileLayer.chinaProvider('Google.Satellite.Annotion',{maxZoom:22,minZoom:1,attribution:'" + google_txt + "'});";
     result += 'var baseLayers={"谷歌地图":normalMap,"谷歌卫星图":satelliteMap,"谷歌卫星标注": routeMap};';

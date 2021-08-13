@@ -23,9 +23,8 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
   * Butterfly已验证，其他Hexo主题，欢迎体验  
 
 <details>
-<summary>更新日志 v1.1.1</summary>
-  * 发布第一个正式版本 <br>
-  * 若干优化 <br>
+<summary>更新日志 v1.1.2</summary>
+  * 给地图增加圆角矩形 <br>
 </details>
 
 ## [Demo页面](https://guole.fun/map/)
