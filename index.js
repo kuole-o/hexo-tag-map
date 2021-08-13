@@ -366,7 +366,7 @@ function baidu(args){
     result += proj4;
     result += proj4leaflet;
     result += ChineseTmsProviders;
-    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;"></div>';
+    result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '<script type="text/javascript">';
     result += "var normalMap=L.tileLayer.chinaProvider('Baidu.Normal.Map',{maxZoom:20,minZoom:4,attribution:'" + baidu_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Baidu.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'}),annotionMap=L.tileLayer.chinaProvider('Baidu.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'});";
     result += 'var baseLayers={"百度地图":normalMap,"百度卫星图":satelliteMap};';
