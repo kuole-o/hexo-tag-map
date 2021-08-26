@@ -13,7 +13,7 @@
 
 const css_text = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css">`;
 const js_text = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script>`;
-const ChineseTmsProviders = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.1.js"></script>`;
+const ChineseTmsProviders = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.2.js"></script>`;
 const proj4 = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4@2.4.3.js"></script>`;
 const proj4leaflet = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4leaflet@1.0.1.min.js"></script>`;
 let geoq_txt = "智图地图 Geoq.cn";
