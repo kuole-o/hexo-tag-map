@@ -23,8 +23,7 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
   * Butterfly已验证，其他Hexo主题，欢迎体验  
 
 <details>
-<summary>更新日志 v1.1.7</summary>
-  * 修复百度地图瓦片图失效的问题 <br>
+<summary>更新日志 v1.1.8</summary>
   * 优化百度地图图层，卫星标注不再单独作为复选图层<br>
 </details>
 

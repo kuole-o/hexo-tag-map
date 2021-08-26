@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-map",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "A map plug-in under hexo, which supports rendering of beautiful interactive maps on article pages.",
   "main": "index.js",
   "directories": {
