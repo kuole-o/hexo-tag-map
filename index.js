@@ -13,7 +13,7 @@
 
 const css_text = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css">`;
 const js_text = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script>`;
-const ChineseTmsProviders = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders.js"></script>`;
+const ChineseTmsProviders = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.1.js"></script>`;
 const proj4 = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4@2.4.3.js"></script>`;
 const proj4leaflet = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4leaflet@1.0.1.min.js"></script>`;
 let geoq_txt = "智图地图 Geoq.cn";
@@ -369,8 +369,8 @@ function baidu(args){
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '<script type="text/javascript">';
     result += "var normalMap=L.tileLayer.chinaProvider('Baidu.Normal.Map',{maxZoom:20,minZoom:4,attribution:'" + baidu_txt + "'}),satelliteMap=L.tileLayer.chinaProvider('Baidu.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'}),annotionMap=L.tileLayer.chinaProvider('Baidu.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'" + baidu_txt + "'});";
-    result += 'var baseLayers={"百度地图":normalMap,"百度卫星图":satelliteMap};';
-    result += 'var overlayLayers={"百度卫星标注":annotionMap};';
+    result += 'var imageMap=L.layerGroup([satelliteMap,annotionMap]);';
+    result += 'var baseLayers={"百度地图":normalMap,"百度卫星图":satelliteMap,"百度卫星标注":imageMap};';
     if (args.length == 7) {
         if (args[6].trim() == 2) {
             result += 'var mymap=L.map("' + mapid + '",{crs:L.CRS.Baidu,minZoom:2,maxZoom:20,attributionControl:true,center:[' + altLat + ',' + altLan + '],zoom:' + zoom + ',layers:[satelliteMap],zoomControl:false});';

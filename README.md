@@ -25,6 +25,7 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
 <details>
 <summary>更新日志 v1.1.5</summary>
   * 修复百度地图瓦片图失效的问题 <br>
+  * 优化百度地图图层，卫星标注不再单独作为复选图层<br>
 </details>
 
 ## [Demo页面](https://guole.fun/map/)
