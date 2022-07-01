@@ -16,10 +16,10 @@ const js_text = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-ma
 const ChineseTmsProviders = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script>`;
 const proj4 = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4@2.4.3.js"></script>`;
 const proj4leaflet = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4leaflet@1.0.1.min.js"></script>`;
-let geoq_txt = "智图地图 Geoq.cn";
-let gaode_txt = "高德地图 Amap.com";
-let google_txt = "谷歌地图 Google.com";
-let baidu_txt = "百度地图 Baidu.com";
+let geoq_txt = "GeoQ";
+let gaode_txt = "Amap";
+let google_txt = "Google Maps";
+let baidu_txt = "Baidu Map";
 
 function hunhe(args){
     args = args.join(' ').split(',');
@@ -127,6 +127,7 @@ function hunhe(args){
         }
 };
 hexo.extend.tag.register('map', hunhe);
+hexo.extend.tag.register('Map', hunhe);
 
 function gaode(args){
     args = args.join(' ').split(',');
@@ -222,6 +223,9 @@ function gaode(args){
         }
 };
 hexo.extend.tag.register('gaodeMap', gaode);
+hexo.extend.tag.register('GaodeMap', gaode);
+hexo.extend.tag.register('Amap', gaode);
+hexo.extend.tag.register('amap', gaode);
 
 function openstreet(args){
     args = args.join(' ').split(',');
@@ -301,6 +305,7 @@ function openstreet(args){
         }
 };
 hexo.extend.tag.register('openstreetMap', openstreet);
+hexo.extend.tag.register('OpenStreetMap', openstreet);
 
 function baidu(args){
     args = args.join(' ').split(',');
@@ -392,6 +397,7 @@ function baidu(args){
         }
 };
 hexo.extend.tag.register('baiduMap', baidu);
+hexo.extend.tag.register('BaiduMap', baidu);
 
 function geoq(args){
     args = args.join(' ').split(',');
@@ -491,6 +497,8 @@ function geoq(args){
         }
 };
 hexo.extend.tag.register('geoqMap', geoq);
+hexo.extend.tag.register('GeoqMap', geoq);
+hexo.extend.tag.register('GeoQ', geoq);
 
 function google(args){
     args = args.join(' ').split(',');
@@ -582,3 +590,4 @@ function google(args){
         }
 };
 hexo.extend.tag.register('googleMap', google);
+hexo.extend.tag.register('GoogleMap', google);
