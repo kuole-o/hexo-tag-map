@@ -9,7 +9,7 @@ fi
 git commit -m "$msg"
 
 # Push source and build repos.
-git push origin main
+git push github main
 
 # push执行完成，不自动退出
 exec /bin/bash
