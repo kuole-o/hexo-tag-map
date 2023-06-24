@@ -23,8 +23,9 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
   * Butterfly已验证，其他Hexo主题，欢迎体验  
 
 <details>
-<summary>更新日志 v1.1.9</summary>
-  * 优化百度地图图层，卫星标注不再单独作为复选图层<br>
+<summary>更新日志 v1.2.1</summary>
+  * 优化地图容器样式，增加间距 `margin: 0.8rem 0 1.6rem 0;` <br>
+  * 更换依赖包为 `unpkg.com` <br>
 </details>
 
 ## [Demo页面](https://guole.fun/map/)

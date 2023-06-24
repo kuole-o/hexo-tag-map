@@ -11,13 +11,13 @@
 
 'use strict';
 
-const css_text = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css">`;
-const js_text = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script>`;
-const ChineseTmsProviders = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script>`;
-const proj4 = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4@2.4.3.js"></script>`;
-const proj4leaflet = `<script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4leaflet@1.0.1.min.js"></script>`;
+const css_text = `<link rel="stylesheet" href="//unpkg.com/hexo-tag-map/lib/leaflet@1.7.1.css">`;
+const js_text = `<script data-pjax src="//unpkg.com/hexo-tag-map/lib/leaflet@1.7.1.js"></script>`;
+const ChineseTmsProviders = `<script data-pjax src="//unpkg.com/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script>`;
+const proj4 = `<script data-pjax src="//unpkg.com/hexo-tag-map/lib/proj4@2.4.3.js"></script>`;
+const proj4leaflet = `<script data-pjax src="//unpkg.com/hexo-tag-map/lib/proj4leaflet@1.0.1.min.js"></script>`;
 let geoq_txt = "GeoQ";
-let gaode_txt = "Amap";
+let gaode_txt = "高德地图";
 let google_txt = "Google Maps";
 let baidu_txt = "Baidu Map";
 
@@ -83,7 +83,7 @@ function hunhe(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
+    result += '<div class="map-box" style="margin: 0.8rem 0 1.6rem 0;">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '</div>';
     result += '<script type="text/javascript">';
@@ -191,7 +191,7 @@ function gaode(args){
     result += css_text;
     result += js_text;
     result += ChineseTmsProviders;
-    result += '<div class="map-box">';
+    result += '<div class="map-box" style="margin: 0.8rem 0 1.6rem 0;">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '</div>';
     result += '<script type="text/javascript">';
@@ -288,7 +288,7 @@ function openstreet(args){
     let result = '';
     result += css_text;
     result += js_text;
-    result += '<div class="map-box">';
+    result += '<div class="map-box" style="margin: 0.8rem 0 1.6rem 0;">';
     result += '<div id="' + mapid + '"' + ' style="max-width:' + mapWidth + '; height:' + mapHeight + ';display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div>';
     result += '</div>';
     result += '<script>';
