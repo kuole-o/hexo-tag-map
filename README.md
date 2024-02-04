@@ -3,10 +3,10 @@
 给你的 Hexo 文章插入交互式地图吧！支持GoogleMap、高德地图、百度地图、Geoq地图、openstreetMap常规地图+卫星地图+卫星标注地图！一个强大的地图插件。  
 Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, Baidu map, Geoq map, openstreetMap regular map + satellite map + satellite annotated map! A powerful map plugin.
 * author: guole
-* https://guole.fun/
+* https://blog.guole.fun/
 * license: Apache-2.0
 * https://github.com/kuole-o/hexo-tag-map/blob/main/LICENSE
-* Tutorials：https://guole.fun/posts/41887/
+* Tutorials：https://blog.guole.fun/posts/41887/
 
 ## 特性
 
@@ -28,9 +28,9 @@ Insert an interactive map into your Hexo article! Support GoogleMap, Gaode map, 
   * 更换依赖包为 `unpkg.com` <br>
 </details>
 
-## [Demo页面](https://guole.fun/map/)
+## [Demo页面](https://blog.guole.fun/map/)
 
-[详细用法，请点击这里查看](https://guole.fun/posts/41887/)
+[详细用法，请点击这里查看](https://blog.guole.fun/posts/41887/)
 
 <details>
 <summary>点击展开截图</summary>
@@ -99,7 +99,7 @@ npm install hexo-tag-map --save
 插入一个googleMap的示例：
 {% googleMap %}
 
-[详细用法，请点击这里查看](https://guole.fun/posts/41887/)
+[详细用法，请点击这里查看](https://blog.guole.fun/posts/41887/)
 </details>
 
 ## 许可
